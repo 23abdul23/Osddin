@@ -6,11 +6,4 @@ export default {
       footer: false,
     },
   },
-  docs: {
-    display: 'children',
-    theme: {
-      navbar: true,
-      footer: true,
-    },
-  },
 };
