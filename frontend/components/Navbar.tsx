@@ -2,13 +2,12 @@ import { MenuIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { links } from '@/lib/data';
-import { getLatestVersionFromChangelog } from '@/lib/getChangelogVersion';
 import { Banner } from './ui/banner';
 import { Button, buttonVariants } from './ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu';
 
 export default function Navbar() {
-  const version = getLatestVersionFromChangelog();
+
 
   return (
     <header className='bg-teal-800 text-white'>
@@ -28,9 +27,7 @@ export default function Navbar() {
               ortal <p className='ml-2 text-2xl lg:text-3xl'>(TBEP)</p>
             </h1>
           </Link>
-          <Link href={'/docs/CHANGELOG'} className='self-end text-xs'>
-            Version: {version ?? 'unknown'}
-          </Link>
+          
         </div>
         <nav className='hidden space-x-4 md:flex'>
           {links.map(link => (

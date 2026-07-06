@@ -1,15 +1,12 @@
 import { type ClassValue, clsx } from 'clsx';
-import EventEmitter from 'events';
+
 import { twMerge } from 'tailwind-merge';
-import { GenePropertyCategoryEnum, type GenePropertyMetadata, OrderByEnum } from './interface';
+
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function getProperty(val: string | GenePropertyMetadata) {
-  return typeof val === 'string' ? val : val.name;
-}
 
 export async function openDB(objectStoreName: string, mode: IDBTransactionMode) {
   return new Promise<IDBObjectStore | null>((resolve, reject) => {
@@ -68,7 +65,6 @@ export function formatBytes(bytes: number | string, decimals = 2): string {
   return `${Number.parseFloat((+bytes / k ** i).toFixed(dm))} ${sizes[i]}`;
 }
 
-export const eventEmitter = new EventEmitter();
 export enum Events {
   ALGORITHM = 'algorithm',
   ALGORITHM_RESULTS = 'algorithm-results',
@@ -136,70 +132,4 @@ export function initRadioOptions() {
   };
 }
 
-export const P_VALUE_REGEX = /^p[-_ ]?val(?:ue)?/i;
-export const LOGFC_REGEX = /^LogFC_/i;
 
-export function downloadFile(content: string, filename: string, type = 'text/csv') {
-  const element = document.createElement('a');
-  const file = new Blob([content], { type });
-  element.href = URL.createObjectURL(file);
-  element.download = filename;
-  document.body.appendChild(element);
-  element.click();
-  URL.revokeObjectURL(element.href);
-  element.remove();
-}
-
-export function orderByStringToEnum(orderBy: string): OrderByEnum {
-  const mapping: Record<string, OrderByEnum> = {
-    'Association Score': OrderByEnum.SCORE,
-    'GWAS associations': OrderByEnum.GWAS_ASSOCIATIONS,
-    'Gene Burden': OrderByEnum.GENE_BURDEN,
-    ClinVar: OrderByEnum.CLINVAR,
-    'GEL PanelApp': OrderByEnum.GEL_PANEL_APP,
-    Gene2phenotype: OrderByEnum.GENE2PHENOTYPE,
-    'UniProt literature': OrderByEnum.UNIPROT_LITERATURE,
-    'UniProt curated variants': OrderByEnum.UNIPROT_CURATED_VARIANTS,
-    Orphanet: OrderByEnum.ORPHANET,
-    ClinGen: OrderByEnum.CLINGEN,
-    'Cancer Gene Census': OrderByEnum.CANCER_GENE_CENSUS,
-    IntOGen: OrderByEnum.INTOGEN,
-    'ClinVar (somatic)': OrderByEnum.CLINVAR_SOMATIC,
-    'Cancer Biomarkers': OrderByEnum.CANCER_BIOMARKERS,
-    ChEMBL: OrderByEnum.CHEMBL,
-    'CRISPR Screens': OrderByEnum.CRISPR_SCREENS,
-    'Project Score': OrderByEnum.PROJECT_SCORE,
-    SLAPenrich: OrderByEnum.SLAPENRICH,
-    PROGENy: OrderByEnum.PROGENY,
-    Reactome: OrderByEnum.REACTOME,
-    'Gene signatures': OrderByEnum.GENE_SIGNATURES,
-    'Europe PMC': OrderByEnum.EUROPE_PMC,
-    'Expression Atlas': OrderByEnum.EXPRESSION_ATLAS,
-    IMPC: OrderByEnum.IMPC,
-  };
-  return mapping[orderBy] || OrderByEnum.SCORE;
-}
-
-export function selectedRadioStringToEnum(selectedRadio: string): GenePropertyCategoryEnum {
-  const mapping: Record<string, GenePropertyCategoryEnum> = {
-    DEG: GenePropertyCategoryEnum.DIFFERENTIAL_EXPRESSION,
-    Pathway: GenePropertyCategoryEnum.PATHWAY,
-    Druggability: GenePropertyCategoryEnum.DRUGGABILITY,
-    TE: GenePropertyCategoryEnum.TISSUE_EXPRESSION,
-    OpenTargets: GenePropertyCategoryEnum.OPEN_TARGETS,
-    OT_Prioritization: GenePropertyCategoryEnum.OT_PRIORITIZATION,
-  };
-  return mapping[selectedRadio];
-}
-
-export function genePropertyCategoryEnumToString(category: GenePropertyCategoryEnum) {
-  const mapping = {
-    [GenePropertyCategoryEnum.DIFFERENTIAL_EXPRESSION]: 'DEG',
-    [GenePropertyCategoryEnum.PATHWAY]: 'Pathway',
-    [GenePropertyCategoryEnum.DRUGGABILITY]: 'Druggability',
-    [GenePropertyCategoryEnum.TISSUE_EXPRESSION]: 'TE',
-    [GenePropertyCategoryEnum.OPEN_TARGETS]: 'OpenTargets',
-    [GenePropertyCategoryEnum.OT_PRIORITIZATION]: 'OT_Prioritization',
-  } as const;
-  return mapping[category];
-}

@@ -1,13 +1,6 @@
-import type { GenePropertyMetadata } from '../interface';
 
-export * from './algorithm';
-export * from './datatableColumn';
-export * from './forceLayoutOptions';
-export * from './graphConfig';
+
 export * from './homeData';
-export * from './nodeColor';
-export * from './nodeSize';
-export * from './radialAnalysisOptions';
 export * from './team';
 /**
  * Default edge color
@@ -42,7 +35,7 @@ export const LLM_MODELS = [
   },
 ] as const;
 
-export const OPENTARGETS_PROPERTY_MAPPING: GenePropertyMetadata[] = [
+export const OPENTARGETS_PROPERTY_MAPPING = [
   {
     name: 'Overall_Association Score',
     description: (
