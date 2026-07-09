@@ -96,36 +96,32 @@ export default function VisionPage() {
             <div className="mx-auto mt-6 h-px w-24 bg-teal-600" />
           </div>
 
-          <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
 
-            {/* Left — vision paragraph */}
-            <div>
-              <p className="text-lg leading-relaxed text-slate-500 mb-6">
-                Our vision is to solve complex health problems using data-driven approaches while empowering a new
-                generation of health data scientists. Students will work collaboratively in interdisciplinary teams with
-                internationally acclaimed scientists and use existing data to make impactful contributions to the field.
-              </p>
-              <p className="text-lg leading-relaxed text-slate-500 mb-6">
-                Our trainees will partner with local and top international universities, hospitals, and industries to
-                tackle real-world problems — working hand in hand with the government to make the National Health
-                Mission successful.
-              </p>
-              <p className="text-lg leading-relaxed text-slate-500">
-                <span className="font-semibold text-teal-600">OSDDIN</span> is a first step towards this vision —
-                turning open biomedical data into a foundation the global research community can build on.
-              </p>
-            </div>
+  {/* Left — vision paragraph */}
+  <div className="flex flex-col justify-center">
+    <p className="text-xl leading-relaxed text-slate-500 mb-8">
+      Our vision is to solve complex health problems using data-driven approaches while empowering a new
+      generation of health data scientists. Students will work collaboratively in interdisciplinary teams with
+      internationally acclaimed scientists and use existing data to make impactful contributions to the field.
+    </p>
+    <p className="text-xl leading-relaxed text-slate-500">
+      <span className="font-semibold text-teal-600">OSDDIN</span> is a first step towards this vision —
+      turning open biomedical data into a foundation the global research community can build on.
+    </p>
+  </div>
 
-            {/* Right — Initiative Flow image */}
-            <div className="group relative w-full h-72 lg:h-96 rounded-3xl overflow-hidden bg-white border border-slate-100 shadow-sm">
-              <Image
-                src="/image/healthFlow.png"
-                alt="Global Health Data Initiative Flow: Audited Process and Metrics"
-                fill
-                className="object-contain p-4 transition-transform duration-300 ease-out group-hover:scale-110"
-              />
-            </div>
-          </div>
+  {/* Right — Initiative Flow image, same height as text card */}
+  <div className="group relative w-full rounded-3xl overflow-hidden bg-white border border-slate-100 shadow-sm">
+    <Image
+      src="/image/healthFlow.png"
+      alt="Global Health Data Initiative Flow: Audited Process and Metrics"
+      fill
+      className="object-contain p-6 transition-transform duration-300 ease-out group-hover:scale-110"
+    />
+  </div>
+
+</div>
 
         </div>
       </section>
