@@ -25,14 +25,14 @@ const geistMono = localFont({
 // biome-ignore lint/style/useComponentExportOnlyModules: Next.js convention for metadata export
 export const metadata: Metadata = {
   title: {
-    default: 'Target & Biomarker Exploration Portal',
+    default: 'OSDDIN',
     template: '%s | Docs - TBEP',
   },
-  applicationName: 'Target & Biomarker Exploration Portal',
+  applicationName: 'OSDDIN',
   generator: 'Next.js',
   appleWebApp: {
     capable: true,
-    title: 'Target & Biomarker Exploration Portal',
+    title: 'OSDDIN',
     statusBarStyle: 'black-translucent',
   },
   metadataBase: new URL(envURL(process.env.NEXT_PUBLIC_SITE_URL)),
@@ -43,14 +43,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: envURL(process.env.NEXT_PUBLIC_SITE_URL),
-    siteName: 'Target & Biomarker Exploration Portal',
-    title: 'Target & Biomarker Exploration Portal',
+    siteName: 'OSDDIN',
+    title: 'OSDDIN',
     description: 'Drug Target Discovery Platform for Homosapiens',
     images: {
       url: `${envURL(process.env.NEXT_PUBLIC_SITE_URL)}/image/open-graph.png`,
       width: 1200,
       height: 630,
-      alt: 'Target & Biomarker Exploration Portal',
+      alt: 'OSDDIN',
     },
   },
 };
