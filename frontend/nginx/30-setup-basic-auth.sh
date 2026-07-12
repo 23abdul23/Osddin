@@ -1,4 +1,4 @@
-#!/bin/sh
+﻿#!/bin/sh
 set -eu
 
 AUTH_INCLUDE_PATH="/etc/nginx/conf.d/basic-auth.conf"

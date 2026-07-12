@@ -1,1 +1,63 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Next.js build output
+.next/
+out/
+build/
+dist/
+
+# Environment variables (SECRETS - never commit)
 .env
+.env.local
+.env.*.local
+.env.development
+.env.production
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor/IDE
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Testing
+coverage/
+
+# Pagefind generated search index (regenerated on build)
+out/_pagefind/
+
+# Sitemap (regenerated on build)
+public/sitemap*.xml
+public/robots.txt
+
+# Turbo/Next cache
+.turbo/
+
+# Docker (local overrides only, not the main compose files)
+docker-compose.override.yml
+compose.override.yml
+
+# Misc
+*.pem
+.vercel
+scripts/data/backup/
+*.native
+*.dump
