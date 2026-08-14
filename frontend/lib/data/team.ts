@@ -118,7 +118,7 @@ export const team: TeamCategory[] = [
         name: 'Shraddha Srivastava',
         title: `Artificial Intelligence and Multiagent Systems Lab
         Indian Institute of Information Technology, Allahabad`,
-        email: '	shraddhasrivas14@gmail.com',
+        email: 'shraddhasrivas14@gmail.com',
         link: 'https://www.linkedin.com/in/shraddha-srivastava-898024212/',
         image: '/image/team/shraddhasrivastava.jpg',
       },
@@ -156,7 +156,7 @@ export const teamOsddin: TeamCategory[] = [
     ],
   },
   {
-    heading: 'Principal Investigator',
+    heading: 'Principal Investigators',
     members: [
       {
         name: 'Dr. Gyan P. Srivastava',
@@ -166,19 +166,20 @@ export const teamOsddin: TeamCategory[] = [
         link: 'https://engineering.missouri.edu/faculty/gyan-srivastava/',
         image: '/image/team/gpsrivastava.jpg',
       },
+      {
+        name: 'Ashwin Jainarayanan',
+        title: `Molecular Immunologist
+        Founder, Granza Bio (YC W24)`,
+        email: 'ashj@granzabio.com',
+        link: 'https://www.linkedin.com/in/jainarayananak/',
+        image: '/image/team/ashwin.jpg',
+      },
     ],
   },
   {
     heading: 'Co-Investigator',
     members: [
-      {
-        name: 'Prof. Vijay Tiwari',
-        title: `Professor and Head of Research
-        Institute of Molecular Medicine, SDU, Odense, Denmark`,
-        email: 'Tiwari@health.sdu.dk',
-        link: 'https://tiwarilab.org/',
-        image: '/image/team/vijaytiwari.png',
-      },
+
       {
         name: 'Dr. Muneendra Ojha',
         title: `Artificial Intelligence and Multi-Agent System (AIMS) Lab
@@ -189,8 +190,49 @@ export const teamOsddin: TeamCategory[] = [
       },
     ],
   },
+ {
+    heading: 'Scientific Advisors',
+    members: [
+      {
+        name: ' Prof. Gajendra P. S. Raghava',
+        role: 'Technical Advisor',
+        title: ` Professor and Director
+              Institute of Information Technology (IIIT), Delhi`,
+        email: 'raghava@iiitd.ac.in',
+        link: 'https://webs.iiitd.edu.in/raghava/',
+        image: '/image/team/gajendraraghava.png',
+      },
+      {
+        name: 'Dr. S. Ramachandran',
+        role: 'Diabetes Advisor',
+        title: `Former Chief Scientist and Professor, AcSIR
+         Faculty of Biological Sciences, CSIR-IGIB`,
+        email: 'ramu@igib.in',
+        link: 'https://www.linkedin.com/in/srinivasan-ramachandran-08385767/',
+        image: '/image/team/sramchandran.jpeg',
+      },
+         {
+        name: 'Prof. Vijay Tiwari',
+         role: 'Oncology Advisor',
+        title: `Professor and Head of Research
+        Institute of Molecular Medicine, SDU, Odense, Denmark`,
+        email: 'Tiwari@health.sdu.dk',
+        link: 'https://tiwarilab.org/',
+        image: '/image/team/vijaytiwari.png',
+      },
+      {
+        name: 'Dr. Debasis Dash',
+        role: 'Prospective Advisor',
+        title: `Director
+        Institute of Life Sciences, Bhubaneswar`,
+        email: 'director@ils.res.in',
+        link: 'https://www.ils.res.in/scientists/debasis-dash/',
+        image: '/image/team/debasisdas.jpeg',
+      },
+    ],
+  },
   {
-    heading: 'TBEP v2 Development Team',
+    heading: 'OSDDIN Development Team',
     members: [
       {
         name: 'Shivansh Gupta',

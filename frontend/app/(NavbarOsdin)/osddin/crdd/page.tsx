@@ -130,10 +130,10 @@ export default function CRDDPage() {
           ))}
         </div>
 
-        {/* Databases Table */}
+
         <div className="mx-auto mt-16 max-w-5xl text-left">
           <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-            {/* Table Header */}
+
             <div className="border-b border-slate-200 px-8 py-6">
               <h2 className="text-lg font-semibold text-slate-900">Databases  Overview</h2>
               <p className="mt-1 text-sm text-slate-500">
@@ -141,7 +141,7 @@ export default function CRDDPage() {
               </p>
             </div>
 
-            {/* Column Headers */}
+   
             <div className="grid grid-cols-[240px_1fr] border-b border-slate-200 bg-slate-50 px-8 py-3">
               <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                 Database name
@@ -151,13 +151,13 @@ export default function CRDDPage() {
               </span>
             </div>
 
-            {/* Section Row */}
+  
             <div className="grid grid-cols-[240px_1fr] border-b border-slate-200 bg-[#f1f5f4] px-8 py-3">
               <span className="text-sm font-bold text-slate-800">Databases developed</span>
               <span className="text-sm font-bold text-slate-800">{databaseItems.length}</span>
             </div>
 
-            {/* Data Rows */}
+
             {databaseItems.map((db, index) => (
               <div
                 key={db.name}
@@ -175,7 +175,7 @@ export default function CRDDPage() {
 
         <div className="mx-auto mt-16 max-w-5xl text-left">
           <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-            {/* Table Header */}
+ 
             <div className="border-b border-slate-200 px-8 py-6">
               <h2 className="text-lg font-semibold text-slate-900">Resources  Overview</h2>
               <p className="mt-1 text-sm text-slate-500">
@@ -183,7 +183,7 @@ export default function CRDDPage() {
               </p>
             </div>
 
-            {/* Column Headers */}
+
             <div className="grid grid-cols-[240px_1fr] border-b border-slate-200 bg-slate-50 px-8 py-3">
               <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                 Resources Name
@@ -193,13 +193,11 @@ export default function CRDDPage() {
               </span>
             </div>
 
-            {/* Section Row */}
             <div className="grid grid-cols-[240px_1fr] border-b border-slate-200 bg-[#f1f5f4] px-8 py-3">
               <span className="text-sm font-bold text-slate-800">Resources created</span>
               <span className="text-sm font-bold text-slate-800">{resourceItems.length}</span>
             </div>
 
-            {/* Data Rows */}
             {resourceItems.map((db, index) => (
               <div
                 key={db.name}
@@ -220,7 +218,7 @@ export default function CRDDPage() {
 
         <div className="mx-auto mt-16 max-w-5xl text-left">
           <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-            {/* Table Header */}
+          
             <div className="border-b border-slate-200 px-8 py-6">
               <h2 className="text-lg font-semibold text-slate-900">Web services  Overview</h2>
               <p className="mt-1 text-sm text-slate-500">
@@ -228,7 +226,7 @@ export default function CRDDPage() {
               </p>
             </div>
 
-            {/* Column Headers */}
+           
             <div className="grid grid-cols-[240px_1fr] border-b border-slate-200 bg-slate-50 px-8 py-3">
               <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                 Web services Name
@@ -238,13 +236,13 @@ export default function CRDDPage() {
               </span>
             </div>
 
-            {/* Section Row */}
+            
             <div className="grid grid-cols-[240px_1fr] border-b border-slate-200 bg-[#f1f5f4] px-8 py-3">
               <span className="text-sm font-bold text-slate-800">Resources created</span>
               <span className="text-sm font-bold text-slate-800">{webServiceItems.length}</span>
             </div>
 
-            {/* Data Rows */}
+      
             {webServiceItems.map((db, index) => (
               <div
                 key={db.name}
@@ -263,7 +261,7 @@ export default function CRDDPage() {
         
         <div className="mx-auto mt-16 max-w-5xl text-left">
           <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-            {/* Table Header */}
+          
             <div className="border-b border-slate-200 px-8 py-6">
               <h2 className="text-lg font-semibold text-slate-900">Drug Target Prediction Overview</h2>
               <p className="mt-1 text-sm text-slate-500">
@@ -271,7 +269,7 @@ export default function CRDDPage() {
               </p>
             </div>
 
-            {/* Column Headers */}
+         
             <div className="grid grid-cols-[240px_1fr] border-b border-slate-200 bg-slate-50 px-8 py-3">
               <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                 Tool Name
@@ -281,13 +279,13 @@ export default function CRDDPage() {
               </span>
             </div>
 
-            {/* Section Row */}
+          
             <div className="grid grid-cols-[240px_1fr] border-b border-slate-200 bg-[#f1f5f4] px-8 py-3">
               <span className="text-sm font-bold text-slate-800">Resources created</span>
               <span className="text-sm font-bold text-slate-800">{drugTargetItems.length}</span>
             </div>
 
-            {/* Data Rows */}
+         
             {drugTargetItems.map((db, index) => (
               <div
                 key={db.name}

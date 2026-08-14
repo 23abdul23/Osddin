@@ -3,17 +3,25 @@ import { teamOsddin } from '@/lib/data';
 
 export default function TeamPage() {
   const chiefMentorCategory = teamOsddin.find(category => category.heading === 'Chief Mentor');
-  const piCategory = teamOsddin.find(category => category.heading === 'Principal Investigator');
+  const piCategory = teamOsddin.find(category => category.heading === 'Principal Investigators');
   const coCategory = teamOsddin.find(category => category.heading === 'Co-Investigator');
+  const advisorsCategory = teamOsddin.find(category => category.heading === 'Scientific Advisors');
 
   const otherCategories = teamOsddin.filter(
     category =>
       category.heading !== 'Chief Mentor' &&
-      category.heading !== 'Principal Investigator' &&
-      category.heading !== 'Co-Investigator'
+      category.heading !== 'Principal Investigators' &&
+      category.heading !== 'Co-Investigator' &&
+      category.heading !== 'Scientific Advisors'
   );
 
-  const renderMember = (person: { name: string; title: string; email: string; link?: string; image: string }) => (
+  const renderMember = (person: {
+    name: string;
+    title: string;
+    email: string;
+    link?: string;
+    image: string;
+  }) => (
     <div
       key={person.name}
       className='flex min-h-81 w-85 flex-col items-center rounded-lg border p-4 transition-shadow hover:shadow-lg'
@@ -33,14 +41,17 @@ export default function TeamPage() {
             {person.name}
           </h3>
         </a>
-        {person.title.split('\n').map((title, _index) => (
-          <p key={title} className='text-gray-600 text-sm'>
-            {title}
-          </p>
-        ))}
-        <a href={`mailto: ${person.email}`} className='underline'>
-          {person.email}
-        </a>
+        {person.title &&
+          person.title.split('\n').map((title, _index) => (
+            <p key={title} className='text-gray-600 text-sm'>
+              {title}
+            </p>
+          ))}
+        {person.email && (
+          <a href={`mailto: ${person.email}`} className='underline'>
+            {person.email}
+          </a>
+        )}
       </center>
     </div>
   );
@@ -58,7 +69,7 @@ export default function TeamPage() {
   return (
     <>
       {chiefMentorCategory && (
-        <div className='mb-4 mt-10'>
+        <div className='mb-4 mt-14'>
           <div id={chiefMentorCategory.heading}>
             <h2 className='mb-4 text-center font-semibold text-3xl text-primary'>{chiefMentorCategory.heading}</h2>
             <div className='flex flex-col flex-wrap items-center justify-center gap-4 md:flex-row'>
@@ -69,15 +80,38 @@ export default function TeamPage() {
         </div>
       )}
 
-      {(piCategory || coCategory) && (
-        <div className='mb-4 mt-10'>
-          <div id='Principal Investigator & Co-Investigators'>
-            <h2 className='mb-4 text-center font-semibold text-3xl text-primary'>
-              Principal Investigator &amp; Co-Investigators
-            </h2>
+      {piCategory && (
+        <div className='mb-4 '>
+          <div id={piCategory.heading}>
+            <h2 className='mb-4 text-center font-semibold text-3xl text-primary'>Principal Investigator</h2>
+            <div className='flex flex-col flex-wrap items-center justify-center gap-4 md:flex-row'>
+              {piCategory.members.map(renderMember)}
+            </div>
+          </div>
+          <hr className='mt-4' />
+        </div>
+      )}
+
+
+
+      {advisorsCategory && (
+        <div className='mb-4 '>
+          <div id={advisorsCategory.heading}>
+            <h2 className='mb-4 text-center font-semibold text-3xl text-primary'>{advisorsCategory.heading}</h2>
             <div className='flex flex-col flex-wrap items-center justify-center gap-6 md:flex-row'>
-              {piCategory?.members.map(person => renderMemberWithLabel(person, 'Principal Investigator'))}
-              {coCategory?.members.map(person => renderMemberWithLabel(person, 'Co-Investigator'))}
+              {advisorsCategory.members.map(person => renderMemberWithLabel(person, person.role ?? ''))}
+            </div>
+          </div>
+          <hr className='mt-4' />
+        </div>
+      )}
+
+            {coCategory && (
+        <div className='mb-4 '>
+          <div id={coCategory.heading}>
+            <h2 className='mb-4 text-center font-semibold text-3xl text-primary'>Co-Investigators</h2>
+            <div className='flex flex-col flex-wrap items-center justify-center gap-4 md:flex-row'>
+              {coCategory.members.map(renderMember)}
             </div>
           </div>
           <hr className='mt-4' />
@@ -85,7 +119,7 @@ export default function TeamPage() {
       )}
 
       {otherCategories.map(category => (
-        <div key={category.heading} className='mb-4 mt-10'>
+        <div key={category.heading} className='mb-4 '>
           <div id={category.heading}>
             <h2 className='mb-4 text-center font-semibold text-3xl text-primary'>{category.heading}</h2>
             <div className='flex flex-col flex-wrap items-center justify-center gap-4 md:flex-row'>
@@ -95,6 +129,8 @@ export default function TeamPage() {
           <hr className='mt-4' />
         </div>
       ))}
+
+       
     </>
   );
 }
