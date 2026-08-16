@@ -83,7 +83,7 @@ export default function TeamPage() {
       {piCategory && (
         <div className='mb-4 '>
           <div id={piCategory.heading}>
-            <h2 className='mb-4 text-center font-semibold text-3xl text-primary'>Principal Investigator</h2>
+            <h2 className='mb-4 text-center font-semibold text-3xl text-primary'>Principal Investigators</h2>
             <div className='flex flex-col flex-wrap items-center justify-center gap-4 md:flex-row'>
               {piCategory.members.map(renderMember)}
             </div>
@@ -109,7 +109,7 @@ export default function TeamPage() {
             {coCategory && (
         <div className='mb-4 '>
           <div id={coCategory.heading}>
-            <h2 className='mb-4 text-center font-semibold text-3xl text-primary'>Co-Investigators</h2>
+            <h2 className='mb-4 text-center font-semibold text-3xl text-primary'>Co-Investigator</h2>
             <div className='flex flex-col flex-wrap items-center justify-center gap-4 md:flex-row'>
               {coCategory.members.map(renderMember)}
             </div>
