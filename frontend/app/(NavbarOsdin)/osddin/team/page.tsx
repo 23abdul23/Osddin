@@ -56,16 +56,6 @@ export default function TeamPage() {
     </div>
   );
 
-  const renderMemberWithLabel = (
-    person: { name: string; title: string; email: string; link?: string; image: string },
-    label: string
-  ) => (
-    <div key={person.name} className='flex flex-col items-center gap-2'>
-      <p className='text-center font-medium text-base text-slate-500 uppercase tracking-wide'>{label}</p>
-      {renderMember(person)}
-    </div>
-  );
-
   return (
     <>
       {chiefMentorCategory && (
@@ -99,7 +89,7 @@ export default function TeamPage() {
           <div id={advisorsCategory.heading}>
             <h2 className='mb-4 text-center font-semibold text-3xl text-primary'>{advisorsCategory.heading}</h2>
             <div className='flex flex-col flex-wrap items-center justify-center gap-6 md:flex-row'>
-              {advisorsCategory.members.map(person => renderMemberWithLabel(person, person.role ?? ''))}
+              {advisorsCategory.members.map(renderMember)}
             </div>
           </div>
           <hr className='mt-4' />
