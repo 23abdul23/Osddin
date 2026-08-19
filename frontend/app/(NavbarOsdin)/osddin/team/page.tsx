@@ -70,19 +70,6 @@ export default function TeamPage() {
         </div>
       )}
 
-      {piCategory && (
-        <div className='mb-4 '>
-          <div id={piCategory.heading}>
-            <h2 className='mb-4 text-center font-semibold text-3xl text-primary'>Principal Investigators</h2>
-            <div className='flex flex-col flex-wrap items-center justify-center gap-4 md:flex-row'>
-              {piCategory.members.map(renderMember)}
-            </div>
-          </div>
-          <hr className='mt-4' />
-        </div>
-      )}
-
-
 
       {advisorsCategory && (
         <div className='mb-4 '>
@@ -90,6 +77,18 @@ export default function TeamPage() {
             <h2 className='mb-4 text-center font-semibold text-3xl text-primary'>{advisorsCategory.heading}</h2>
             <div className='flex flex-col flex-wrap items-center justify-center gap-6 md:flex-row'>
               {advisorsCategory.members.map(renderMember)}
+            </div>
+          </div>
+          <hr className='mt-4' />
+        </div>
+      )}
+
+            {piCategory && (
+        <div className='mb-4 '>
+          <div id={piCategory.heading}>
+            <h2 className='mb-4 text-center font-semibold text-3xl text-primary'>Principal Investigators</h2>
+            <div className='flex flex-col flex-wrap items-center justify-center gap-4 md:flex-row'>
+              {piCategory.members.map(renderMember)}
             </div>
           </div>
           <hr className='mt-4' />
