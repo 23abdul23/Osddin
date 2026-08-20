@@ -127,7 +127,7 @@ export default function VisionPage() {
               internationally acclaimed scientists and use existing data to make impactful contributions to the field.
             </p>
             <p className="text-xl leading-relaxed text-slate-500">
-              <span className="font-semibold text-teal-600">OSDDIN</span> is a first step towards this vision —
+              <span className="font-semibold text-teal-600">OSDDIN</span> is a first step towards this vision
               turning open biomedical data into a foundation the global research community can build on.
             </p>
           </div>
