@@ -47,12 +47,6 @@ const objectives = [
 ];
 
 
-const osddinHighlights = [
-  { stat: '190K+', label: 'Knowledge Graph Nodes' },
-  { stat: '21M+', label: 'Biological Relationships' },
-  { stat: '4', label: 'Core Research Workstreams' },
-  { stat: '18', label: 'Core Ontologies Integrated' },
-];
 
 const osddinWorkstreams = [
   {
@@ -120,7 +114,7 @@ export default function VisionPage() {
             <div className="mx-auto mt-6 h-px w-24 bg-teal-600" />
           </div>
 
-          <div className="mx-auto mt-16 max-w-4xl text-center">
+          <div className="mx-auto mt-16 max-w-5xl text-center">
             <p className="text-xl leading-relaxed text-slate-500 mb-8">
               Our vision is to solve complex health problems using data driven approaches while empowering a new
               generation of health data scientists. Students will work collaboratively in interdisciplinary teams with
@@ -150,47 +144,51 @@ export default function VisionPage() {
 
           <div className="mx-auto mt-6 h-px w-24 bg-teal-600" />
 
-          <p className="mx-auto mt-8 max-w-5xl text-xl leading-relaxed text-slate-500">
-            OSDDIN is a web based platform, born out of this initiative, delivering curated biomedical data from
-            hundreds of sources as a biomedical knowledge graph for open source drug discovery. Backed by persistent
-            GitHub &amp; Zenodo repositories, we ensure long term, standalone access to datasets, databases and
-            software for the global research community.
-          </p>
+          <div className="mt-8 grid grid-cols-1 items-center gap-8 text-left lg:grid-cols-2">
+  {/* Left: Text */}
+  <div className="flex h-[360px] flex-col justify-center">
+    <p className="text-xl leading-relaxed text-slate-500">
+      OSDDIN is a web-based platform born from the Open Source Drug Discovery
+      (OSDD) initiative, delivering curated biomedical data from hundreds of
+      sources as an interconnected knowledge graph for open-source drug
+      discovery. Building on the legacy of{' '}
+      <span className="font-medium text-teal-600">Science 3.0</span>, it
+      advances toward{' '}
+      <span className="font-medium text-teal-600">Science 4.0</span>, where
+      explainable AI and autonomous agents integrate biomedical knowledge to
+      accelerate scientific discovery.
+    </p>
+  </div>
+
+  {/* Right: Image */}
+  <div className="group relative h-[360px] w-full overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm">
+    <Image
+      src="/image/healthFlow.png"
+      alt="OSDDIN health data research workflow"
+      fill
+      className="object-contain p-3 transition-transform duration-300 ease-out group-hover:scale-105"
+    />
+  </div>
+</div>
 
           {/* Goal */}
-          <p className="mx-auto mt-6 max-w-5xl text-lg leading-relaxed text-slate-500">
-            <span className="font-semibold text-slate-900">Our goal</span> is to transform fragmented biomedical
-            knowledge scattered across disconnected databases, publications and institutional silos into
-            experimentally testable therapeutic hypotheses, coupling structured knowledge graphs, interactive
-            visualization and AI assisted reasoning to help researchers uncover disease mechanisms, therapeutic
-            targets and clinically relevant biomarkers faster and more affordably.
+          <p className="mx-auto mt-9 max-w-5xl text-lg leading-relaxed text-slate-500">
+The platform provides a unified AI-driven discovery engine supporting multiple stages of drug discovery through a common knowledge graph and AI reasoning framework. It transforms fragmented biomedical knowledge from databases, publications, and institutional silos into testable therapeutic hypotheses, helping researchers uncover disease mechanisms, therapeutic targets, and clinically relevant biomarkers faster and more affordably.
+
           </p>
 
-          {/* Vision / Science 4.0 */}
-          <p className="mx-auto mt-6 max-w-5xl text-lg leading-relaxed text-slate-500">
-            <span className="font-semibold text-slate-900">Our vision</span> builds on the legacy of the original
-            Open Source Drug Discovery (OSDD) initiative, moving the scientific community from{' '}
-            <span className="font-medium text-teal-600">Science 3.0</span> crowdsourced, manually curated research
-            to <span className="font-medium text-teal-600">Science 4.0</span>, where explainable AI and autonomous
-            agents integrate knowledge, generate hypotheses and prioritize discoveries, freeing researchers to focus
-            on higher order scientific questions.
-          </p>
+        <div className="mt-12 group relative w-full h-[520px] lg:h-[560px] rounded-3xl overflow-hidden bg-white border border-slate-100 shadow-sm">
+  <Image
+    src="/image/osddinGoal.png"
+    alt="OSDDIN Research Platform applications and biomedical discovery workflow"
+    fill
+    className="object-contain p-3 transition-transform duration-300 ease-out group-hover:scale-105"
+  />
+</div>
 
-          <div className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-6 sm:grid-cols-4">
-            {osddinHighlights.map((item) => (
-              <div
-                key={item.label}
-                className="group relative overflow-hidden rounded-2xl border border-slate-100 hover:border-teal-300 bg-[#eef3f2] px-4 py-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-              >
-                <div className="absolute left-0 top-0 h-[3px] w-full origin-left scale-x-0 bg-teal-500 transition-transform duration-500 ease-out group-hover:scale-x-100" />
-                <p className="text-2xl font-semibold text-teal-600">{item.stat}</p>
-                <p className="mt-1 text-xs font-medium tracking-wide text-slate-500 uppercase">{item.label}</p>
-              </div>
-            ))}
-          </div>
 
         
-          <div className="mt-16">
+          <div className="mt-12">
             <p className="text-sm font-semibold tracking-widest text-teal-600 uppercase mb-3">
               How it works
             </p>
@@ -238,34 +236,30 @@ export default function VisionPage() {
               Transforming health data science through{' '}
               <span className="text-teal-600">innovative analytics research.</span>
             </h2>
-            <p className="text-lg leading-relaxed text-slate-500">
-              The exponential growth of health data — electronic health records, wearable devices, genomic sequencing,
-              and digital health technologies generates vast data daily. While this holds the potential to
-              revolutionise personalised medicine and improve patient outcomes, managing and analysing it effectively
-              remains a significant challenge.
-            </p>
-            <p className="mt-4 text-lg leading-relaxed text-slate-500">
-              Addressing the data deluge requires coordinated efforts in data governance, advanced analytics, machine
-              learning, and scalable infrastructure for storage, processing, and secure sharing of health data.
-            </p>
           </div>
 
-    
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="group relative w-full h-80 lg:h-96 rounded-3xl overflow-hidden bg-white border border-slate-100 shadow-sm">
+          <div className="grid grid-cols-1 items-center gap-8 text-left lg:grid-cols-2">
+            {/* Left: Text */}
+            <div className="flex h-[360px] flex-col justify-center">
+              <p className="text-xl leading-relaxed text-slate-500">
+                The exponential growth of health data electronic health records, wearable devices, genomic sequencing,
+                and digital health technologies generates vast data daily. While this holds the potential to
+                revolutionise personalised medicine and improve patient outcomes, managing and analysing it effectively
+                remains a significant challenge.
+              </p>
+              <p className="mt-4 text-lg leading-relaxed text-slate-500">
+                Addressing the data deluge requires coordinated efforts in data governance, advanced analytics, machine
+                learning, and scalable infrastructure for storage, processing, and secure sharing of health data.
+              </p>
+            </div>
+
+            {/* Right: Image */}
+            <div className="group relative h-[360px] w-full overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm">
               <Image
                 src="/image/dataCircle.png"
                 alt="A single patient produces 80+ megabytes of medical data every year"
                 fill
                 className="object-contain p-4 transition-transform duration-300 ease-out group-hover:scale-110"
-              />
-            </div>
-            <div className="group relative w-full h-80 lg:h-96 rounded-3xl overflow-hidden bg-white border border-slate-100 shadow-sm">
-              <Image
-                src="/image/healthFlow.png"
-                alt="Global Health Data Initiative Flow: Audited Process and Metrics"
-                fill
-                className="object-contain p-6 transition-transform duration-300 ease-out group-hover:scale-110"
               />
             </div>
           </div>
@@ -328,104 +322,6 @@ export default function VisionPage() {
           </div>
         </div>
       </section>
-
-{/*  
-      <section className="py-20 bg-[#eef3f2]">
-        <div className="mx-auto max-w-6xl px-6">
-
-          <div className="text-center mb-14">
-            <div className="inline-flex rounded-full border border-slate-300 bg-white px-6 py-2 text-md font-medium tracking-[0.3em] text-slate-600 uppercase mb-8">
-              Our Team
-            </div>
-            <h2 className="text-3xl font-semibold text-slate-900">
-              The core team behind{' '}
-              <span className="text-teal-600">Health Data Science Academy.</span>
-            </h2>
-            <div className="mx-auto mt-4 h-px w-24 bg-teal-600" />
-          </div>
-
-       
-          <div className="flex flex-wrap justify-center gap-6 mb-16">
-            {coreTeam.map((member) => (
-              <div
-                key={member.name}
-                className="group w-56 rounded-3xl border border-slate-200 hover:border-teal-300 bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden text-center"
-              >
-               
-<div className="relative w-full h-56 bg-slate-100">
-  {member.src ? (
-    <Image
-      src={member.src}
-      alt={member.name}
-      fill
-      className="object-cover object-center"
-    />
-  ) : (
-    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-teal-50 to-slate-100">
-      <div className="w-20 h-20 rounded-full bg-teal-100 flex items-center justify-center">
-        <svg className="w-10 h-10 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-        </svg>
-      </div>
-    </div>
-  )}
-</div>
-
-            
-                <div className="px-4 py-5">
-                  <p className="font-bold text-slate-900 text-base leading-snug">{member.name}</p>
-                  <p className="mt-1 text-xs font-semibold tracking-widest text-teal-600 uppercase">{member.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-
-          <div className="text-center mb-10">
-            <h3 className="text-2xl font-semibold text-slate-900">
-              Associate{' '}
-              <span className="text-teal-600">Members.</span>
-            </h3>
-            <div className="mx-auto mt-3 h-px w-16 bg-teal-600" />
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-6">
-            {associateMembers.map((member) => (
-              <div
-                key={member.name}
-                className="group w-56 rounded-3xl border border-slate-200 hover:border-teal-300 bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden text-center"
-              >
-               
-                <div className="relative w-full h-56 bg-slate-100">
-                  {member.src ? (
-                    <Image
-                      src={member.src}
-                      alt={member.name}
-                      fill
-                      className="object-cover object-center"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-teal-50 to-slate-100">
-                      <div className="w-20 h-20 rounded-full bg-teal-100 flex items-center justify-center">
-                        <svg className="w-10 h-10 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-           
-                <div className="px-4 py-5">
-                  <p className="font-bold text-slate-900 text-base leading-snug">{member.name}</p>
-                  <p className="mt-1 text-xs font-semibold tracking-widest text-teal-600 uppercase">{member.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section> */}
 
     </div>
   );

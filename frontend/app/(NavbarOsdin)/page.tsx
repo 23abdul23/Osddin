@@ -34,24 +34,16 @@ export default function Home() {
       <main className='relative z-10 mx-auto flex max-w-7xl flex-col items-center px-6 pt-24'>
 
         <div className='max-w-5xl text-center'>
-      <h1 className='mx-auto max-w-5xl font-medium leading-[1.15] text-3xl md:text-4xl lg:text-4xl'>
-  Transforming fragmented biomedical data into
-  <br />
-  <span className='bg-linear-to-r from-teal-300 to-emerald-400 bg-clip-text text-transparent'>
+<h1 className="mx-auto max-w-6xl font-medium leading-[1.15] text-3xl md:text-4xl lg:text-4xl">
+  Transforming fragmented biomedical data into{' '}
+  <span className="bg-linear-to-r from-teal-300 to-emerald-400 bg-clip-text text-transparent">
     connected intelligence
   </span>{' '}
-  for next-generation drug 
-  <br />
-  discovery
+  for next-generation drug discovery
 </h1>
-            
-          <p className='mx-auto mt-8 max-w-4xl text-md text-slate-300 lg:text-lg'>
-            OSDDIN integrates biological entities like diseases, phenotypes, genes, proteins, pathways, drugs, and their 
-            <br />
-         relationships into a unified biomedical knowledge graph empowering researchers to transform therapeutic
-            <br />
-           knowledge into discoveries and discoveries into real-world healthcare solutions.
-          </p>
+         <p className="mx-auto mt-8 max-w-7xl text-base text-slate-300 lg:text-lg">
+  OSDDIN integrates biological entities like diseases, phenotypes, genes, proteins, pathways, drugs, and their relationships into a unified biomedical knowledge graph empowering researchers to transform therapeutic knowledge into discoveries and discoveries into real-world healthcare solutions.
+</p>
 
 <div className='mt-12 flex flex-wrap justify-center gap-3'>
   <Link href='https://tbep.osdin.bio/explore' target='_blank'>
@@ -97,56 +89,20 @@ export default function Home() {
 
 
 <div className='mt-12 w-[95%] max-w-[1700px]'>
-  <div className='grid gap-12 lg:grid-cols-2'>
 
-    <div className='overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl'>
-      <div className='border-b border-white/10 px-6 py-4 text-center'>
-        <p className='text-md font-medium tracking-wide text-white'>
-          Protein Interaction
-        </p>
-      </div>
-      <div className='grid grid-cols-3'>
-        {[
-          { count: '21,800+', label: 'Diseases' },
-          { count: '82,500+', label: 'Genes & Alias Names' },
-          { count: '640,400+', label: 'String PPI Interactions' },
-        ].map((item) => (
-          <div
-            key={item.label}
-            className='flex h-24 flex-col items-center justify-center px-4 py-2 text-center'
-          >
-            <div className='font-semibold text-xl lg:text-2xl'>{item.count}</div>
-            <div className='mt-1 text-xs tracking-wider text-slate-400 uppercase'>{item.label}</div>
-          </div>
-        ))}
-      </div>
-      <div className='grid grid-cols-2 border-t border-white/10'>
-        {[
-          { count: '479,800+', label: 'Intact Interactions' },
-          { count: '222,000+', label: 'Biogrid Interactions' },
-        ].map((item) => (
-          <div
-            key={item.label}
-            className='flex h-24 flex-col items-center justify-center px-4 py-2 text-center'
-          >
-            <div className='font-semibold text-xl lg:text-2xl'>{item.count}</div>
-            <div className='mt-1 text-xs tracking-wider text-slate-400 uppercase'>{item.label}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-
-  
     <div className='overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl'>
       <div className='border-b border-white/10 px-6 py-4 text-center'>
         <p className='text-md font-medium tracking-wide text-white'>
           Biomedical Knowledge Graph
         </p>
       </div>
-      <div className='grid grid-cols-3'>
+      <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6'>
         {[
+          { count: '36K+', label: 'Diseases' },
           { count: '190K+', label: 'Biomedical Entities' },
           { count: '21.8M+', label: 'Relationships' },
+          { count: '13,42,200+', label: 'Protein Interaction' },
+          { count: '36', label: 'Relationship Types' },
           { count: '10', label: 'Entity Categories' },
         ].map((item) => (
           <div
@@ -158,24 +114,7 @@ export default function Home() {
           </div>
         ))}
       </div>
-      <div className='grid grid-cols-3 border-t border-white/10'>
-        {[
-          { count: '36', label: 'Relationship Types' },
-          { count: '61K+', label: 'Genes' },
-          { count: '36K+', label: 'Diseases' },
-        ].map((item) => (
-          <div
-            key={item.label}
-            className='flex h-24 flex-col items-center justify-center px-4 py-2 text-center'
-          >
-            <div className='font-semibold text-xl lg:text-2xl'>{item.count}</div>
-            <div className='mt-1 text-xs tracking-wider text-slate-400 uppercase'>{item.label}</div>
-          </div>
-        ))}
-      </div>
     </div>
-
-  </div>
 
   <p className='mt-2 mb-10 text-right text-xs text-slate-400'>
     * After removing redundant connections
@@ -198,9 +137,7 @@ export default function Home() {
       <h2 className="mt-8 text-5xl font-semibold tracking-tight text-slate-900">
         Modules, one{" "}
         <span className="text-teal-600">
-          integrated
-          <br />
-          knowledge fabric.
+          integrated knowledge fabric.
         </span>
       </h2>
 
@@ -233,14 +170,11 @@ export default function Home() {
         Knowledge Base
       </h3>
 
-      <p className="mt-2 text-base leading-8 text-slate-500">
-        In Collaboration with IIIT Delhi
-      </p>
+
 
       <p className="mt-6 text-base leading-8 text-slate-600">
-        A curated compilation of computational resources for drug discovery,
-        openly shared via GitHub and Zenodo. Integrates DrugPedia to serve
-        researchers and is freely accessible for academic use.
+        Transforms fragmented biomedical knowledge from databases, publications, and institutional silos into an interconnected knowledge graph. By linking genes, diseases, drugs, and pathways, it enables researchers to uncover relationships and generate new therapeutic hypotheses.
+
       </p>
 
       <div className="mt-8 flex items-center gap-6">
@@ -277,21 +211,14 @@ export default function Home() {
   </p>
 
   <h3 className="mt-3 text-3xl font-semibold text-slate-900">
-    TBEP v2
+  OSDDIN Research Platform
   </h3>
 
-  <p className="mt-2 text-base leading-8 text-slate-500">
-    Target & Biomarker Exploration Portal
-  </p>
 
   <p className="mt-6 text-base leading-8 text-slate-600">
-    Network-based bioinformatics tool that accelerates drug target and
-    biomarker discovery via network analysis. Integrates deep multimodal
-    datasets to uncover causal disease mechanisms tied to specific
-    phenotypes, with a built-in LLM assistant for exploring complex
-    biological relationships.
-  </p>
+  An iterative four-stage AI-powered workflow transforms raw biomedical data into structured knowledge graphs, interactive visualizations, analytical insights, and explainable reasoning. It helps researchers uncover biological relationships, identify potential clinical targets and biomarkers, and generate therapeutic hypotheses faster.
 
+  </p>
 
   <Link
     href='https://tbep.osdin.bio/explore' target='_blank'
@@ -302,11 +229,11 @@ export default function Home() {
 
 </div>
 
-    <div className="flex items-center justify-center bg-white  p-6">
+    <div className="flex items-center justify-center bg-white  p-3">
       <img
-        src="/image/tbep.png"
-        alt="Knowledge Graph"
-        className="w-full max-w-[450px] object-contain transition-all duration-700 group-hover:scale-105"
+        src="/image/osddinModule2.png"
+        alt="OSDDIN Research Platform"
+        className="w-full max-w-[550px] object-contain transition-all duration-700 group-hover:scale-105"
       />
     </div>
   </div>
