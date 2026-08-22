@@ -107,24 +107,47 @@ export default function VisionPage() {
             </div>
 
             <h1 className="mt-8 text-4xl font-medium tracking-tight text-slate-900">
-              Transforming Health Data into{' '}
-              <span className="text-teal-600">Better Healthcare.</span>
+              Health Data Science{' '}
+              <span className="text-teal-600">Academy</span>
             </h1>
 
             <div className="mx-auto mt-6 h-px w-24 bg-teal-600" />
           </div>
 
-          <div className="mx-auto mt-16 max-w-5xl text-center">
-            <p className="text-xl leading-relaxed text-slate-500 mb-8">
-              Our vision is to solve complex health problems using data driven approaches while empowering a new
-              generation of health data scientists. Students will work collaboratively in interdisciplinary teams with
-              internationally acclaimed scientists and use existing data to make impactful contributions to the field.
-            </p>
-            <p className="text-xl leading-relaxed text-slate-500">
+          {/* <div className="mx-auto mt-16 max-w-5xl text-center"> */}
+<div className="mt-8 grid grid-cols-1 gap-8 text-left lg:grid-cols-12">
+  {/* Left: Text */}
+  <div className="flex h-[420px] flex-col justify-center lg:col-span-5">
+    <p className="text-xl leading-[1.8] text-slate-500">
+      Our vision is to solve complex health problems using data-driven approaches
+      while empowering a new generation of health data scientists. Students will
+      work collaboratively in interdisciplinary teams with internationally
+      acclaimed scientists and use existing data to make impactful contributions
+      to the field.
+
+  
+      By combining healthcare, data science, technology, and research, we create
+      an environment where students can tackle real-world challenges and turn
+      complex data into meaningful insights.
+    </p>
+  </div>
+
+  {/* Right: Image */}
+  <div className="group relative h-[420px] w-full overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm lg:col-span-7">
+    <Image
+      src="/image/healthFlow.png"
+      alt="OSDDIN health data research workflow"
+      fill
+      className="object-contain p-2 transition-transform duration-300 ease-out group-hover:scale-105"
+    />
+  </div>
+</div>
+          
+            <p className="text-2xl mt-9 leading-relaxed text-slate-500">
               <span className="font-semibold text-teal-600">OSDDIN</span> is a first step towards this vision
               turning open biomedical data into a foundation the global research community can build on.
             </p>
-          </div>
+          {/* </div> */}
 
         </div>
       </section>
@@ -144,9 +167,9 @@ export default function VisionPage() {
 
           <div className="mx-auto mt-6 h-px w-24 bg-teal-600" />
 
-          <div className="mt-8 grid grid-cols-1 items-center gap-8 text-left lg:grid-cols-2">
+     
   {/* Left: Text */}
-  <div className="flex h-[360px] flex-col justify-center">
+  <div className="flex mt-6 flex-col justify-center">
     <p className="text-xl leading-relaxed text-slate-500">
       OSDDIN is a web-based platform born from the Open Source Drug Discovery
       (OSDD) initiative, delivering curated biomedical data from hundreds of
@@ -160,19 +183,10 @@ export default function VisionPage() {
     </p>
   </div>
 
-  {/* Right: Image */}
-  <div className="group relative h-[360px] w-full overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm">
-    <Image
-      src="/image/healthFlow.png"
-      alt="OSDDIN health data research workflow"
-      fill
-      className="object-contain p-3 transition-transform duration-300 ease-out group-hover:scale-105"
-    />
-  </div>
-</div>
+
 
           {/* Goal */}
-          <p className="mx-auto mt-9 max-w-5xl text-lg leading-relaxed text-slate-500">
+          <p className="mx-auto mt-6 max-w-5xl text-lg leading-relaxed text-slate-500">
 The platform provides a unified AI-driven discovery engine supporting multiple stages of drug discovery through a common knowledge graph and AI reasoning framework. It transforms fragmented biomedical knowledge from databases, publications, and institutional silos into testable therapeutic hypotheses, helping researchers uncover disease mechanisms, therapeutic targets, and clinically relevant biomarkers faster and more affordably.
 
           </p>
