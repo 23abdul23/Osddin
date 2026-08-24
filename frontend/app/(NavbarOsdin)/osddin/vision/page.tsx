@@ -107,8 +107,8 @@ export default function VisionPage() {
             </div>
 
             <h1 className="mt-8 text-4xl font-medium tracking-tight text-slate-900">
-              Health Data Science{' '}
-              <span className="text-teal-600">Academy</span>
+              Transforming Health Data into{' '}
+              <span className="text-teal-600">Better Healthcare</span>
             </h1>
 
             <div className="mx-auto mt-6 h-px w-24 bg-teal-600" />
