@@ -16,13 +16,15 @@ export const team: TeamCategory[] = [
   {
     heading: 'Principal Investigator',
     members: [
-      {
-        name: 'Dr. Gyan P. Srivastava',
-        title: `Department of Electrical Engineering and Computer Science
-        University of Missouri, Columbia`,
-        email: 'gps8b9@missouri.edu',
-        link: 'https://engineering.missouri.edu/faculty/gyan-srivastava/',
-        image: '/image/team/gpsrivastava.jpg',
+          {
+        name: 'Prof. Samir K Brahmachari',
+        title: `Academy Professor AcSIR,
+Chief Mentor OSDD
+Founding Director CSIR-IGIB and
+Former Director General CSIR, India.`,
+        email: 'skb@igib.in',
+        link: 'https://www.samirbrahmachari.com/',
+        image: '/image/team/samirbrahmachari.jpg',
       },
     ],
   },
@@ -147,11 +149,14 @@ export const teamOsddin: TeamCategory[] = [
     heading: 'Chief Mentor',
     members: [
       {
-        name: 'Prof. Samir Brahmachari',
-        title: `Former Director General CSIR, Former Secretary DSIR and Founding Director of CSIR-IGIB`,
+        name: 'Prof. Samir K Brahmachari',
+        title: `Academy Professor AcSIR,
+Chief Mentor OSDD
+Founding Director CSIR-IGIB and
+Former Director General CSIR, India.`,
         email: 'skb@igib.in',
         link: 'https://www.samirbrahmachari.com/',
-        image: '/image/team/samirbrahmachari.jpg',
+        image: '/image/team/samirbrahmachari.jpeg',
       },
     ],
   },
@@ -193,15 +198,15 @@ export const teamOsddin: TeamCategory[] = [
  {
     heading: 'Scientific Advisors',
     members: [
-      {
-        name: ' Prof. Gajendra P. S. Raghava',
-        role: 'Technical Advisor',
-        title: ` Professor and Director
-              Institute of Information Technology (IIIT), Delhi`,
-        email: 'raghava@iiitd.ac.in',
-        link: 'https://webs.iiitd.edu.in/raghava/',
-        image: '/image/team/gajendraraghava.png',
-      },
+      // {
+      //   name: ' Prof. Gajendra P. S. Raghava',
+      //   role: 'Technical Advisor',
+      //   title: ` Professor and Director
+      //         Institute of Information Technology (IIIT), Delhi`,
+      //   email: 'raghava@iiitd.ac.in',
+      //   link: 'https://webs.iiitd.edu.in/raghava/',
+      //   image: '/image/team/gajendraraghava.png',
+      // },
       {
         name: 'Dr. S. Ramachandran',
         role: 'Diabetes Advisor',

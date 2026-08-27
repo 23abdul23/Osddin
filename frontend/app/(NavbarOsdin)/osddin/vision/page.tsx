@@ -107,8 +107,8 @@ export default function VisionPage() {
             </div>
 
             <h1 className="mt-8 text-4xl font-medium tracking-tight text-slate-900">
-              Transforming Health Data into{' '}
-              <span className="text-teal-600">Better Healthcare</span>
+              Unlocking the Power of Genomics and Health Data for{' '}
+              <span className="text-teal-600"> Affordable Care</span>
             </h1>
 
             <div className="mx-auto mt-6 h-px w-24 bg-teal-600" />
@@ -119,16 +119,10 @@ export default function VisionPage() {
   {/* Left: Text */}
   <div className="flex h-[420px] flex-col justify-center lg:col-span-5">
     <p className="text-xl leading-[1.8] text-slate-500">
-      Our vision is to solve complex health problems using data-driven approaches
-      while empowering a new generation of health data scientists. Students will
-      work collaboratively in interdisciplinary teams with internationally
-      acclaimed scientists and use existing data to make impactful contributions
-      to the field.
+      Availability of large number of human genome sequences along with clinical information and other multi omics data sets hold the key to curative and preventive affordable quality healthcare of the future.
+     Our vision is to solve complex health problems using data-driven approaches while empowering a new generation of health data scientists. Students will collaborate with interdisciplinary teams and internationally acclaimed scientists to use data and make impactful contributions to the field.
 
-  
-      By combining healthcare, data science, technology, and research, we create
-      an environment where students can tackle real-world challenges and turn
-      complex data into meaningful insights.
+
     </p>
   </div>
 
@@ -193,7 +187,7 @@ The platform provides a unified AI-driven discovery engine supporting multiple s
 
         <div className="mt-12 group relative w-full h-[520px] lg:h-[560px] rounded-3xl overflow-hidden bg-white border border-slate-100 shadow-sm">
   <Image
-    src="/image/osddinGoal.png"
+    src="/image/osddinGoal.jpeg"
     alt="OSDDIN Research Platform applications and biomedical discovery workflow"
     fill
     className="object-contain p-3 transition-transform duration-300 ease-out group-hover:scale-105"
@@ -231,85 +225,11 @@ The platform provides a unified AI-driven discovery engine supporting multiple s
         </div>
       </section>
 
-    
-  <section className="py-20 bg-[#eef3f2]">
-        <div className="mx-auto max-w-6xl px-6">
-
-      
-          <div className="flex justify-center mb-10">
-            <div className="inline-flex rounded-full border border-slate-300 bg-white px-6 py-2 text-md font-medium tracking-[0.3em] text-slate-600 uppercase">
-              Health Data Science Academy
-            </div>
-          </div>
-
-          <div className="mb-16 text-center">
-            <p className="text-sm font-semibold tracking-widest text-teal-600 uppercase mb-3 text-center">
-              A Non-Profit Initiative
-            </p>
-            <h2 className="text-3xl font-semibold text-slate-900 leading-snug mb-6 text-center">
-              Transforming health data science through{' '}
-              <span className="text-teal-600">innovative analytics research.</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 items-center gap-8 text-left lg:grid-cols-2">
-            {/* Left: Text */}
-            <div className="flex h-[360px] flex-col justify-center">
-              <p className="text-xl leading-relaxed text-slate-500">
-                The exponential growth of health data electronic health records, wearable devices, genomic sequencing,
-                and digital health technologies generates vast data daily. While this holds the potential to
-                revolutionise personalised medicine and improve patient outcomes, managing and analysing it effectively
-                remains a significant challenge.
-              </p>
-              <p className="mt-4 text-lg leading-relaxed text-slate-500">
-                Addressing the data deluge requires coordinated efforts in data governance, advanced analytics, machine
-                learning, and scalable infrastructure for storage, processing, and secure sharing of health data.
-              </p>
-            </div>
-
-            {/* Right: Image */}
-            <div className="group relative h-[360px] w-full overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm">
-              <Image
-                src="/image/dataCircle.png"
-                alt="A single patient produces 80+ megabytes of medical data every year"
-                fill
-                className="object-contain p-4 transition-transform duration-300 ease-out group-hover:scale-110"
-              />
-            </div>
-          </div>
-
-     
-          <div className="mt-20">
-            <div className="text-center mb-6">
-              <p className="text-sm font-semibold tracking-widest text-teal-600 uppercase mb-2">Programme Structure</p>
-              <h3 className="text-2xl font-semibold text-slate-900">How the Academy is <span className="text-teal-600">organised.</span></h3>
-              <div className="mx-auto mt-3 h-px w-24 bg-teal-600 mb-10" />
-            </div>
-            <div className="relative w-full h-[420px] lg:h-[540px] rounded-3xl overflow-hidden bg-white border border-slate-100 shadow-sm mb-12">
-              <Image
-                src="/image/orgChart.png"
-                alt="Academy programme structure: Advisory Board → Leadership Team → Experts → Scientists → Programme Manager → Problem Groups"
-                fill
-                className="object-contain p-6"
-              />
-            </div>
-            <div className="text-center max-w-3xl mx-auto">
-              <p className="text-xl leading-relaxed text-slate-500">
-                Guided by an international advisory board and a local leadership team of leading experts in
-                Biology, Clinic, and Data Science we are committed to making data driven healthcare
-                a reality for all.
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#eef3f2]">
         <div className="mx-auto max-w-6xl px-6">
 
           <div className="text-center mb-14">
-            <div className="inline-flex rounded-full border border-slate-300 bg-[#eef3f2] px-6 py-2 text-md font-medium tracking-[0.3em] text-slate-600 uppercase mb-8">
+            <div className="inline-flex rounded-full border border-slate-300 bg-white px-6 py-2 text-md font-medium tracking-[0.3em] text-slate-600 uppercase mb-8">
               Objectives
             </div>
             <h2 className="text-3xl font-semibold text-slate-900">
@@ -323,7 +243,7 @@ The platform provides a unified AI-driven discovery engine supporting multiple s
             {objectives.map((obj, i) => (
               <div
                 key={i}
-                className="group relative overflow-hidden rounded-2xl border border-slate-200 hover:border-teal-300 bg-[#eef3f2] p-7 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                className="group relative overflow-hidden rounded-2xl border border-slate-200 hover:border-teal-300 bg-white p-7 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
                 <div className="absolute left-0 top-0 h-[3px] w-full origin-left scale-x-0 bg-teal-500 transition-transform duration-500 ease-out group-hover:scale-x-100" />
                 <p className="text-xs font-bold text-teal-500 mb-3 tracking-widest uppercase">
