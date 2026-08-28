@@ -100,15 +100,16 @@ export const chiefMentor = {
 
 export const mentors = [
   {
-    name: 'M. Vijayan',
+    name: 'Prof. Thomas Leon Blundell',
     role: 'Mentor',
-    affiliation: 'President, Gyan Bindu Academy',
-    image: '/image/osdd/vijayan.jpg',
+    affiliation: `FRS FRSC FMedSci MAE,
+    University of Cambridge & Oxford`,
+    image: '/image/osdd/thomasblundell.jpeg',
   },
   {
-    name: 'V. M. Katoch',
+    name: 'Dr. V. M. Katoch',
     role: 'Mentor',
-    affiliation: 'Director General, Indian Council of Medical Research (ICMR)',
+    affiliation: 'Former Director General, Indian Council of Medical Research (ICMR)',
     image: '/image/osdd/vmkatoch.jpg',
   },
   {

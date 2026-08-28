@@ -1,4 +1,5 @@
 import PersonCard from '@/components/PersonCard';
+import HighlightsSlideshow from '@/components/HighlightsSlideshow';
 import { osddItems, phaseOnePackages, phaseTwoPackages, mentors, chiefMentor, achievements } from "@/lib/data/osdd";
 
 export default function OSDDPage() {
@@ -112,6 +113,9 @@ export default function OSDDPage() {
   <div className="inline-flex rounded-full border border-slate-300 bg-white px-5 py-1.5 text-xs font-medium uppercase tracking-[0.3em] text-slate-600">
     Highlights
   </div>
+
+  {/* Slideshow */}
+  <HighlightsSlideshow />
 
   {/* Feature Cards */}
   <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">

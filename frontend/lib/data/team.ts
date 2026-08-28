@@ -187,8 +187,9 @@ Former Director General CSIR, India.`,
 
       {
         name: 'Dr. Muneendra Ojha',
-        title: `Artificial Intelligence and Multi-Agent System (AIMS) Lab
-        IIIT Allahabad`,
+        title: `Associate Professor 
+         Department of Information Technology
+         IIIT Allahabad`,
         email: 'muneendra@iiita.ac.in',
         link: 'https://aims.iiita.ac.in/',
         image: '/image/team/muneendraojha.jpg',
@@ -198,15 +199,15 @@ Former Director General CSIR, India.`,
  {
     heading: 'Scientific Advisors',
     members: [
-      // {
-      //   name: ' Prof. Gajendra P. S. Raghava',
-      //   role: 'Technical Advisor',
-      //   title: ` Professor and Director
-      //         Institute of Information Technology (IIIT), Delhi`,
-      //   email: 'raghava@iiitd.ac.in',
-      //   link: 'https://webs.iiitd.edu.in/raghava/',
-      //   image: '/image/team/gajendraraghava.png',
-      // },
+      {
+        name: ' Prof. Gajendra P. S. Raghava',
+        role: 'Technical Advisor',
+        title: `Head of the Department of Computational Biology
+              Institute of Information Technology (IIIT), Delhi`,
+        email: 'raghava@iiitd.ac.in',
+        link: 'https://webs.iiitd.edu.in/raghava/',
+        image: '/image/team/gajendraraghava.png',
+      },
       {
         name: 'Dr. S. Ramachandran',
         role: 'Diabetes Advisor',
