@@ -1,4 +1,4 @@
-import { FileTextIcon, HelpCircleIcon, Lightbulb, Users , InfoIcon,  Computer,Pill, MessageSquareMore, TvMinimalPlayIcon, Users2Icon, House } from 'lucide-react';
+import { FileTextIcon, HelpCircleIcon, Lightbulb, Users ,UserRoundPen, InfoIcon,  Computer,Pill, MessageSquareMore, TvMinimalPlayIcon, Users2Icon, House } from 'lucide-react';
 
 export const links = [
   { href: '/', text: 'Osddin', icon: <House className='size-4' /> },
@@ -14,6 +14,7 @@ export const navLinks = [
   { href: '/osddin/team', label: 'Team', icon: <Users className="size-5" /> },
   { href: '/osddin/crdd', label: 'CRDD', icon: <Computer className="size-5" /> },
   { href: '/osddin/osdd', label: 'OSDD', icon: <Pill className="size-5" /> },
+  { href: '/osddin/signup', label: 'Sign up', icon: <UserRoundPen className="size-5" /> },
 ];
 
 export const databaseStats = [
