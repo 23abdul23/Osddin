@@ -344,7 +344,7 @@ export default function JoinPage() {
         <div className="mx-auto mt-6 h-px w-24 bg-teal-600" />
 
         {submitted ? (
-          <div className="relative mt-12 overflow-hidden rounded-2xl border border-teal-200 bg-white p-8 text-left shadow-lg sm:p-10">
+          <div className="relative mt-12 overflow-hidden rounded-2xl border border-teal-200 bg-white p-8 text-left shadow-lg sm:p-10 lg:left-1/2 lg:w-[min(64rem,calc(100vw-3rem))] lg:-translate-x-1/2 lg:p-12">
             <div className="absolute left-0 top-0 h-[3px] w-full bg-teal-500" />
 
             <div className="text-center">
@@ -359,28 +359,39 @@ export default function JoinPage() {
 
             <dl className="mt-8 divide-y divide-slate-100">
               <SummaryHeading>About you</SummaryHeading>
-              <Row label="Profile photo">
-                {submitted.photo ? (
-                  <img
-                    src={submitted.photo}
-                    alt={`${submitted.name} profile`}
-                    className="h-32 w-32 rounded-full border border-slate-200 object-cover"
-                  />
-                ) : (
-                  <span className="text-slate-400">Not provided</span>
-                )}
-              </Row>
-              <Row label="Name"><Text value={submitted.name} /></Row>
-              <Row label="Email"><Text value={submitted.email} /></Row>
-              <Row label="Institution / organisation"><Text value={submitted.institution} /></Row>
-              <Row label="Location"><Text value={submitted.location} /></Row>
-              <Row label="Current role">
-                <Text
-                  value={
-                    submitted.role === 'Other' ? `Other: ${submitted.otherRole}` : submitted.role
-                  }
-                />
-              </Row>
+              <div className="grid gap-8 py-4 md:grid-cols-[1fr_1fr] md:items-stretch">
+                <div className="relative aspect-square overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 md:aspect-auto">
+                  {submitted.photo ? (
+                    <img
+                      src={submitted.photo}
+                      alt={`${submitted.name} profile`}
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-slate-400">
+                      <svg viewBox="0 0 24 24" className="h-16 w-16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                        <circle cx="12" cy="8" r="4" />
+                        <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" strokeLinecap="round" />
+                      </svg>
+                      <span className="text-base">No photo provided</span>
+                    </div>
+                  )}
+                </div>
+
+                <div className="divide-y divide-slate-100 [&>div:first-child]:pt-0 [&>div:last-child]:pb-0">
+                  <Row label="Name"><Text value={submitted.name} /></Row>
+                  <Row label="Email"><Text value={submitted.email} /></Row>
+                  <Row label="Institution / organisation"><Text value={submitted.institution} /></Row>
+                  <Row label="Location"><Text value={submitted.location} /></Row>
+                  <Row label="Current role">
+                    <Text
+                      value={
+                        submitted.role === 'Other' ? `Other: ${submitted.otherRole}` : submitted.role
+                      }
+                    />
+                  </Row>
+                </div>
+              </div>
               <Row label="Field and current work"><Text value={submitted.work} /></Row>
 
               <SummaryHeading>Expertise and interests</SummaryHeading>
