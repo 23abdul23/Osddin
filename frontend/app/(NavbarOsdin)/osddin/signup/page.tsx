@@ -100,6 +100,38 @@ const cardClass =
 const topBar =
   'absolute left-0 top-0 h-[3px] w-full origin-left scale-x-0 bg-teal-500 transition-transform duration-500 ease-out group-focus-within:scale-x-100';
 
+/** Resize + compress a photo in the browser so the upload stays small (~80-150 KB). */
+const resizeImage = (file: File, maxSide = 800): Promise<string> =>
+  new Promise((resolve, reject) => {
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      const scale = Math.min(1, maxSide / Math.max(img.width, img.height));
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(img.width * scale);
+      canvas.height = Math.round(img.height * scale);
+      canvas.getContext('2d')!.drawImage(img, 0, 0, canvas.width, canvas.height);
+      URL.revokeObjectURL(url);
+      resolve(canvas.toDataURL('image/jpeg', 0.85));
+    };
+    img.onerror = () => {
+      URL.revokeObjectURL(url);
+      reject(new Error('bad image'));
+    };
+    img.src = url;
+  });
+
+const SCRIPT_URL = process.env.NEXT_PUBLIC_APPS_SCRIPT_URL as string;
+
+const ERROR_MESSAGES: Record<string, string> = {
+  DUPLICATE: 'A submission with this email already exists.',
+  INVALID: 'Please fill in all required fields.',
+  INVALID_EMAIL: 'Enter a valid email address.',
+  BAD_PHOTO: 'That photo is not valid or is too large.',
+  RATE_LIMIT: 'We are receiving many submissions right now. Please try again later.',
+  BUSY: 'The server is busy. Please try again in a moment.',
+};
+
 function ErrorText({ msg }: { msg?: string }) {
   if (!msg) return null;
   return (
@@ -204,6 +236,8 @@ export default function JoinPage() {
   const [form, setForm] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<Errors>({});
   const [submitted, setSubmitted] = useState<FormState | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const update = <K extends keyof FormState>(key: K, value: FormState[K]) => {
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -215,8 +249,6 @@ export default function JoinPage() {
     update(key, current.includes(value) ? current.filter((v) => v !== value) : [...current, value]);
   };
 
-  
-
   const handlePhoto = (file: File | undefined) => {
     if (!file) return;
     if (!file.type.startsWith('image/')) {
@@ -227,17 +259,17 @@ export default function JoinPage() {
       setErrors((prev) => ({ ...prev, photo: `Image must be smaller than ${MAX_IMAGE_MB} MB` }));
       return;
     }
-    const reader = new FileReader();
-    reader.onload = () => {
-      setForm((prev) => ({ ...prev, photo: String(reader.result), photoName: file.name }));
-      setErrors((prev) => ({ ...prev, photo: undefined }));
-    };
-    reader.readAsDataURL(file);
+    resizeImage(file)
+      .then((dataUrl) => {
+        setForm((prev) => ({ ...prev, photo: dataUrl, photoName: file.name }));
+        setErrors((prev) => ({ ...prev, photo: undefined }));
+      })
+      .catch(() =>
+        setErrors((prev) => ({ ...prev, photo: 'Could not read that image. Try another one.' })),
+      );
   };
 
   const removePhoto = () => setForm((prev) => ({ ...prev, photo: '', photoName: '' }));
-
-  
 
   const REQUIRED = 'This is a required question';
 
@@ -267,8 +299,10 @@ export default function JoinPage() {
     return e;
   };
 
-  const handleSubmit = (ev: React.FormEvent) => {
+  const handleSubmit = async (ev: React.FormEvent) => {
     ev.preventDefault();
+    if (submitting) return;
+
     const e = validate();
     if (Object.keys(e).length > 0) {
       setTimeout(() => {
@@ -279,21 +313,35 @@ export default function JoinPage() {
       return;
     }
 
-    setSubmitted({ ...form });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setSubmitting(true);
+    setSubmitError('');
+    try {
+      const payload: Partial<FormState> = { ...form };
+      delete payload.photoName; // only used for the UI preview
+
+      const res = await fetch(SCRIPT_URL, {
+        method: 'POST',
+        // text/plain keeps this a "simple" request, so no CORS preflight is needed
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ action: 'create', data: payload }),
+      });
+      const j = await res.json();
+      if (!j.ok) throw new Error(ERROR_MESSAGES[j.code] || 'Something went wrong. Please try again.');
+
+      setSubmitted({ ...form });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (err) {
+      setSubmitError((err as Error).message);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const clearForm = () => {
     setForm(initialState);
     setErrors({});
+    setSubmitError('');
   };
-
-  const editResponse = () => {
-    setSubmitted(null);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  
 
   const Text = ({ value }: { value: string }) =>
     value.trim() ? (
@@ -332,8 +380,6 @@ export default function JoinPage() {
     </div>
   );
 
-  
-
   return (
     <section className="bg-[#eef3f2] py-20">
       <div className="mx-auto max-w-3xl px-6 text-center">
@@ -353,7 +399,7 @@ export default function JoinPage() {
               </h2>
               <div className="mx-auto mt-3 h-px w-16 bg-teal-600" />
               <p className="mt-4 text-lg leading-relaxed text-slate-500">
-                Here are the details you filled in.
+                Your response has been submitted. Here are the details you filled in.
               </p>
             </div>
 
@@ -418,18 +464,9 @@ export default function JoinPage() {
               <Row label="Relevant links"><Text value={submitted.links} /></Row>
             </dl>
 
-            <div className="mt-8">
-              <button
-                type="button"
-                onClick={editResponse}
-                className="rounded-lg bg-teal-600 px-8 py-3 text-base font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-700 hover:shadow-lg"
-              >
-                Edit response
-              </button>
-            </div>
+            {/* "Edit response" removed: re-submitting the same email would be rejected as a duplicate. */}
           </div>
         ) : (
-          
           <form onSubmit={handleSubmit} noValidate className="mt-6 space-y-5">
             <SectionHeader title="About OSDDIN" />
 
@@ -777,17 +814,28 @@ export default function JoinPage() {
               />
             </Question>
 
+            {submitError && (
+              <p
+                role="alert"
+                className="rounded-lg border border-red-300 bg-red-50 px-4 py-3 text-left text-base text-red-700"
+              >
+                {submitError}
+              </p>
+            )}
+
             <div className="flex items-center justify-between pt-2">
               <button
                 type="submit"
-                className="rounded-lg bg-teal-600 px-10 py-3 text-base font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-700 hover:shadow-lg"
+                disabled={submitting}
+                className="rounded-lg bg-teal-600 px-10 py-3 text-base font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-700 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
               >
-                Submit
+                {submitting ? 'Submitting…' : 'Submit'}
               </button>
               <button
                 type="button"
                 onClick={clearForm}
-                className="text-base font-medium text-teal-600 underline-offset-2 hover:underline"
+                disabled={submitting}
+                className="text-base font-medium text-teal-600 underline-offset-2 hover:underline disabled:opacity-60"
               >
                 Clear form
               </button>
