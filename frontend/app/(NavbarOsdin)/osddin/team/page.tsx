@@ -373,7 +373,8 @@ export default function TeamPage() {
     </div>
   );
 
-  const staticTeam = (
+  // Always-static section: Chief Mentor + Scientific Advisors (shown in every state)
+  const topStatic = (
     <>
       {chiefMentorCategory && (
         <div className='mb-4 mt-14'>
@@ -398,6 +399,13 @@ export default function TeamPage() {
           <hr className='mt-4' />
         </div>
       )}
+
+    </>
+  );
+
+  const staticTeam = (
+    <>
+      {topStatic}
 
       {piCategory && (
         <div className='mb-4 '>
@@ -440,9 +448,12 @@ export default function TeamPage() {
   /* ---------------- Render ---------------- */
   if (status === 'loading') {
     return (
-      <p className='mt-24 text-center text-lg text-gray-600' role='status'>
-        Loading team…
-      </p>
+      <>
+        {topStatic}
+        <p className='mt-10 text-center text-lg text-gray-600' role='status'>
+          Loading contributors…
+        </p>
+      </>
     );
   }
 
@@ -455,8 +466,10 @@ export default function TeamPage() {
 
     return (
       <>
-        {groups.map((group, i) => (
-          <div key={group.role} className={i === 0 ? 'mb-4 mt-14' : 'mb-4'}>
+        {topStatic}
+
+        {groups.map((group) => (
+          <div key={group.role} className='mb-4'>
             <div id={group.role}>
               <h2 className='mb-4 text-center font-semibold text-3xl text-primary'>{group.role}</h2>
               <div className='flex flex-col flex-wrap items-center justify-center gap-4 md:flex-row'>
